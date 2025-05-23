@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untuk Kamu yang Istimewa 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #ffe4ec, #fdfdfd);
+      background-size: cover;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container, .loading-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: opacity 1s ease;
+    }
+
+    .container {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .container.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.7rem;
+      color: #ff3e70;
+      margin-top: 20px;
+      z-index: 1;
+    }
+
+    .cat {
+      width: 220px;
+      margin-top: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      z-index: 1;
+    }
+
+    .terminal-box {
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 90%;
+      margin: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+
+    .terminal-box::before {
+      content: "Calon_Cewekku.py";
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 0.85rem;
+      color: #7f8c8d;
+    }
+
+    .terminal-line {
+      margin: 8px 0;
+      white-space: pre-line;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.85rem;
+      color: #aaa;
+      z-index: 1;
+    }
+
+    .flower {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      color: #ffb6c1;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .loading-screen {
+      background: linear-gradient(120deg, #ffe4ec, #fdfdfd);
+      font-size: 1.5rem;
+      font-family: 'Dancing Script', cursive;
+      color: #ff69b4;
+      z-index: 99;
+    }
+
+    .loading-screen span {
+      font-size: 3rem;
+      animation: blink 1.5s infinite alternate;
+    }
+
+    @keyframes blink {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading screen -->
+  <div class="loading-screen" id="loading">
+    <span>🌸</span>
+    <div>Halo... 💐</div>
+  </div>
+
+  <!-- Konten utama -->
+  <div class="container" id="mainContent">
+    <img class="cat" src="kucing/download.jpg" alt="Kucing Melambai" />
+    <h1>Cieee lolos SNBT nihhh 💕</h1>
+
+    <!-- Terminal-style Motivasi -->
+    <div class="terminal-box">
+      <div class="terminal-line">if passed_snbt:</div>
+      <div class="terminal-line">    print("Aku tahu kamu pasti bisa, dan hari ini kamu buktiin itu.")</div>
+      <div class="terminal-line">    print("Kamu itu luar biasa—pintar, kuat, dan pantas dapetin semuanya.")</div>
+      <div class="terminal-line">    print("Jujur aja, aku makin suka...")</div>
+      <div class="terminal-line">    print("Calon cewekku nih ceritanya? 😳💖")</div>
+    </div>
+
+    <audio autoplay loop hidden>
+      <source src="kucing/Blue Jeans - Gangga Kusuma 🇮🇩🇮🇩 (Lirik Lagu Terjemahan).mp3" type="audio/mp3" />
+    </audio>
+
+    <div class="footer">Made with ❤️ by kak adit</div>
+  </div>
+
+  <!-- Animasi bunga -->
+  <script>
+    function createFlower() {
+      const flower = document.createElement("div");
+      flower.classList.add("flower");
+      flower.innerText = "🌸";
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = 4 + Math.random() * 6 + "s";
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 10000);
+    }
+
+    setInterval(createFlower, 300);
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('mainContent').classList.add('show');
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
